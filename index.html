@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<title>Flappy Turtle</title>
+<meta name="description" content="Flappy Turtle on the web: flap through the pipes. Every gap stays fixed — no moving pipes.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main id="stage">
+  <canvas id="game" tabindex="0" role="application" aria-label="Flappy Turtle. Menu."></canvas>
+  <p id="hint" aria-hidden="true">Tap Play, or press Enter</p>
+  <p id="status" class="visually-hidden" role="status" aria-live="polite"></p>
+  <p id="toast" role="status" hidden></p>
+  <div id="webgl-error" role="alert" hidden>
+    <p>Flappy Turtle could not start.</p>
+    <p id="webgl-error-detail"></p>
+    <p>If WebGL is disabled in this browser, the game normally falls back to Canvas 2D automatically. Check the browser console for the exact error, then try reloading, or try another browser with hardware acceleration enabled.</p>
+    <button id="retry-button" type="button">Reload</button>
+  </div>
+  <noscript><p class="fallback">Flappy Turtle needs JavaScript to run.</p></noscript>
+</main>
+<script>
+  // If the module above never loads (file://, blocked script, bad MIME),
+  // say so instead of leaving a black screen. The module sets the flag
+  // at evaluation; a successful boot also hides this overlay.
+  setTimeout(function () {
+    if (window.__flappyGameScriptLoaded) return;
+    var error = document.getElementById('webgl-error');
+    if (!error) return;
+    var detail = document.getElementById('webgl-error-detail');
+    if (detail) detail.textContent = 'The game script (js/game.js) did not load. Open this page over HTTP (python3 -m http.server), not from file://, and check the browser console.';
+    error.hidden = false;
+  }, 8000);
+</script>
+<script type="module" src="js/game.js"></script>
+</body>
+</html>
