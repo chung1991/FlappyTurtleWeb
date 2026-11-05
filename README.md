@@ -77,6 +77,7 @@ same layouts as the iOS `-ft-seed` hook).
 | [js/audio.js](js/audio.js) | Sound pools for the original `.wav` effects |
 | [assets/](assets) | Original art (`game.png`, `bg.jpg`, `obstacle.png`) and sounds |
 | [tests/model.test.mjs](tests/model.test.mjs) | Node tests, including the static-gap suite |
+| [LICENSE](LICENSE) | MIT License for the source code (assets excluded) |
 
 ## Launch options (debug / screenshots)
 
@@ -105,6 +106,6 @@ after spawn.
 ## Third-party assets
 
 The source code is released under the MIT License (see
-`../FlappyTurtle/LICENSE`). The bundled art and sounds — the original
+[LICENSE](LICENSE)). The bundled art and sounds — the original
 game's assets in `assets/` — are not covered by it and remain under
 their owners' terms, as in the original repository.
